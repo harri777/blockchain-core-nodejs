@@ -1,8 +1,8 @@
 const { healthcheck } = require('../controllers/healthcheck');
-// const { blocks  } = require('../controllers/blockchain');
+const { getBlocks, mineBlock  } = require('../controllers/blockchain');
 
-module.exports = function(app){
+module.exports = function(app, blockchain){
     app.get('/healthcheck', healthcheck);
-    // app.post('/blocks', session);
-
+    app.get('/blocks', (req, res) => { getBlocks(req, res, blockchain);});
+    app.post('/mine', (req, res) => { mineBlock(req, res, blockchain);});
 }
