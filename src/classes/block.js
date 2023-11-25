@@ -17,8 +17,8 @@ class Block {
         `
     }
 
-    static calculateHash() {
-        return SHA256(this.timestamp + this.previousHash + JSON.stringify(this.data)).toString();
+    static calculateHash(timestamp, previousHash, data) {
+        return SHA256(timestamp + previousHash + JSON.stringify(data)).toString();
     }
 
     static genesis() {

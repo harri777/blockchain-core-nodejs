@@ -19,4 +19,47 @@ describe('Blockchain Tests', () => {
 
         expect(blockchain.chain[blockchain.chain.length - 1].data).toEqual(data);
     });
+
+    it('validates a valid chain', () => {
+        blockchain2.addBlock('foo');
+
+        expect(blockchain.isValidChain(blockchain2.chain)).toBe(true);
+    });
+
+    it('invalidates a chain with a corrupt genesis block', () => {
+        blockchain2.chain[0].data = 'Bad data';
+
+        expect(blockchain.isValidChain(blockchain2.chain)).toBe(false);
+    });
+
+    it('invalidates a corrupt chain', () => {
+        blockchain2.addBlock('foo');
+        console.log(blockchain2);
+        blockchain2.chain[1].data = 'Notfoow';
+
+        console.log(blockchain2);
+        expect(blockchain.isValidChain(blockchain2.chain)).toBe(false);
+    });
+
+    it('replaces the chain with a valid chain', () => {
+        blockchain2.addBlock('goo');
+        blockchain.replaceChain(blockchain2.chain);
+
+        expect(blockchain.chain).toEqual(blockchain2.chain);
+    });
+
+    it('does not replace the chain with one of less than or equal to length', () => {
+        blockchain.addBlock('foo');
+        blockchain.replaceChain(blockchain2.chain);
+
+        expect(blockchain.chain).not.toEqual(blockchain2.chain);
+    });
+
+    it('does not replace the chain with one that is invalid', () => {
+        blockchain2.addBlock('foo');
+        blockchain2.chain[1].data = 'Notfoo';
+        blockchain.replaceChain(blockchain2.chain);
+
+        expect(blockchain.chain).not.toEqual(blockchain2.chain);
+    });
 });

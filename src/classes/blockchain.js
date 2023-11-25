@@ -21,7 +21,9 @@ class Blockchain {
             const block = chain[i];
             const previousBlock = chain[i - 1];
 
-            if (block.previousHash !== previousBlock.hash || block.hash !== Block.blockHash(block)) return false;
+            if (block.previousHash !== previousBlock.hash || block.hash !== Block.blockHash(block)) {
+                return false;
+            }
         }
 
         return true;
@@ -31,7 +33,9 @@ class Blockchain {
         if (newChain.length <= this.chain.length) {
             console.log('Received chain is not longer than the current chain.');
             return;
-        } else if (!this.isValidChain(newChain)) {
+        }
+        
+        if (!this.isValidChain(newChain)) {
             console.log('The received chain is not valid.');
             return;
         }
