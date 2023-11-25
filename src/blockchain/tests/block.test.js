@@ -1,4 +1,4 @@
-const Block = require('../src/classes/block.js');
+const Block = require('../classes/block.js');
 
 describe('Block Tests', () => {
     let data, previousBlock, block;

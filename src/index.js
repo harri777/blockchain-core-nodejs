@@ -1,4 +1,4 @@
-const Block = require('./classes/block.js');
+const Block = require('./blockchain/classes/block.js');
 
 const block = new Block('foo', 'bar', 'zoobazwjkwdjsjdosjdio', 'bazwjkwdjsjbazwjkwdjsjdosjdiodosjdio');
 console.log(block.toString());
