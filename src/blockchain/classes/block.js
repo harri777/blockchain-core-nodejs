@@ -11,9 +11,9 @@ class Block {
     toString() {
         return `
             timestamp: ${this.timestamp}
-            data: ${this.data}
             previousHash: ${this.previousHash.substring(0, 10)}
             hash: ${this.hash.substring(0, 10)}
+            data: ${this.data}
         `
     }
 
@@ -22,7 +22,7 @@ class Block {
     }
 
     static genesis() {
-        return new this('Genesis time', [], '-----', "f1r57-h45hdddkeoekk");
+        return new this('Genesis time', [], '-----', "first-hash-not-allowed-to-be-empty");
     }
 
     static mineBlock(previousBlock, data) {
@@ -33,7 +33,7 @@ class Block {
         return new this(timestamp, data, previousHash, hash);
     }
 
-    static blockHash(block) {
+    static calculateHashFromBlock(block) {
         const { timestamp, previousHash, data } = block;
         return Block.calculateHash(timestamp, previousHash, data);
     }

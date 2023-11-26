@@ -27,7 +27,7 @@ This Simple Blockchain Core can be utilized in a variety of scenarios, including
 ```
   $ HTTP_PORT=8081 P2P_PORT=5002 PEERS=ws://localhost:5001 npm run dev
 ```
-### 4. Make request for to create new block
+### 4. For miner block, make a request
 ```
   $ curl --request POST \
   --url http://localhost:8080/mine \
@@ -36,7 +36,12 @@ This Simple Blockchain Core can be utilized in a variety of scenarios, including
 	"data": "my data"
   }'
 ```
-### 5. For unit tests
+### 5. For get the blocks, make a request
+```
+  $ curl --request GET \
+  --url http://localhost:8080/blocks 
+```
+### 6. For unit tests
 ```
   $ npm run tests
 ```

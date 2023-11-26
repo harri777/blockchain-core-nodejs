@@ -21,7 +21,7 @@ class Blockchain {
             const block = chain[i];
             const previousBlock = chain[i - 1];
 
-            if (block.previousHash !== previousBlock.hash || block.hash !== Block.blockHash(block)) {
+            if (block.previousHash !== previousBlock.hash || block.hash !== Block.calculateHashFromBlock(block)) {
                 return false;
             }
         }
