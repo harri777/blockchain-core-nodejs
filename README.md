@@ -45,5 +45,7 @@ This Simple Blockchain Core can be utilized in a variety of scenarios, including
 ```
   $ npm run tests
 ```
+This project is continually evolving, and contributions are always welcome. We hope this Simple Blockchain Core serves as a valuable learning and development resource for the community.
+
 ## Author
 - Harrisson Biaggio [hawkz]
