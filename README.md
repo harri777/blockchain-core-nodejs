@@ -1,4 +1,4 @@
-<h1 align="center">Blockchain Core</h1>
+<h1 align="center">Blockchain Core - NodeJS</h1>
 
 The objective of be a minimalist and efficient blockchain application built using Node.js. This application features a REST API for interaction and management, along with supporting peer-to-peer (P2P) connections with an integrated consensus protocol.
 
